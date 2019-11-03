@@ -1,0 +1,95 @@
+def numeroSocio(b):
+    cont=1
+    while b>10 and b!=-1:
+        b=b//10
+        cont+=1
+        
+    return cont
+
+def controlarNumero(a):
+    validar=0
+    if  a%2!=0:
+        validar=1
+    
+    return validar
+
+# aca es donde me quede 
+def sinRepetidos(a):
+    listaSinRepetidos=[]
+    i=0
+    encontrado=1
+    while i<len(a):
+        for j in range(0,len(listaSinRepetidos)):
+            if a[i]==listaSinRepetidos[j]:
+                encontrado=0
+        if encontrado==1:
+             listaSinRepetidos.append(a[i])
+        encontrado=1     
+        i=i+1
+    return listaSinRepetidos     
+
+def juntar(a,b,c):
+    acum=0
+    for i in range(len(b)):
+        if a==b[i]:
+            acum=acum+c[i]
+    return acum        
+        
+        
+            
+
+def ordenar(a,b):
+    for i in range(0,len(a)-1):
+        for j in range(i+1,len(a)):
+            if ((a[i]//2)+1)>((a[j]//2)+1):
+                aux=a[i]
+                a[i]=a[j]
+                a[j]=aux
+                aux=b[i]
+                b[i]=b[j]
+                b[j]=aux
+    return a, b 
+        
+        
+#programa principal
+num=int(input("ingrese un numero de socio:"))
+lista=[]
+listaHoras=[]
+while num!=-1:
+    
+    socio= numeroSocio(num)
+    control= controlarNumero(socio)
+    
+    if control==1:
+        
+        lista.append(num)
+        horas=int(input("ingrese cantidad de horas:"))
+        while horas<0 or horas>24:
+             horas=int(input("ingrese cantidad de horas:"))
+             
+        listaHoras.append(horas)
+        
+    else:
+        
+        print("numero invalido")
+    
+    num=int(input("ingrese un numero de socio:"))
+    
+    
+print (lista)
+print(listaHoras)
+llamar1, llamar2= ordenar(lista, listaHoras)
+print(llamar1)
+print(llamar2)
+
+
+resultado1=sinRepetidos(lista)
+for i in range(0,len(resultado1)):
+    resultado2=juntar(resultado1[i],lista,listaHoras)
+    print("el socio numero",resultado1[i],"estuvo:",resultado2,"horas")
+
+
+    
+
+
+
