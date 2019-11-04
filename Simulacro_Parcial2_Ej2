@@ -13,7 +13,7 @@ def controlarNumero(a):
     
     return validar
 
-# aca es donde me quede 
+
 def sinRepetidos(a):
     listaSinRepetidos=[]
     i=0
