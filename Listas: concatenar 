@@ -1,0 +1,55 @@
+#funciones
+import random 
+def crearlista(n):
+	t=0
+	lista1=[]
+	while t<n:
+		num=random.randint(0,100)
+		lista1.append(num)
+		t=t+1
+	
+	return lista1
+
+def strr(lista):
+	listastr=[]
+	for i in range(len(lista)):
+		k=str(lista[i])
+		listastr.append(k)
+	return listastr
+
+def concatenar(lista, lista1):
+	listaC=[]
+	for i in range(len(lista)):
+		for j in range(len(lista1)):
+			k=lista[i]+lista1[j]
+			listaC.append(k)
+	return listaC
+	
+def concatenar1(lista, lista1):
+	listaD=[]
+	i=0
+	n=len(lista)-1
+	k=len(lista1)-1
+	while i<=n and i<=k:
+		j=lista[i]+lista1[i]
+		listaD.append(j)
+		i+=1
+	return listaD
+	
+#programa principal	
+cantidad=int(input("ingrese cantidad de numeros a crear:"))
+funcion=crearlista(cantidad)
+print("lista A:", funcion)
+funcion1=crearlista(cantidad)
+print("lista B:", funcion1)
+
+pasarTexto= strr(funcion)
+pasartexto=strr(funcion1)
+
+juntar= concatenar(pasarTexto, pasartexto)
+print("Todos los elementos de A con todos los elementos de B", juntar)
+juntar1=concatenar1(pasarTexto, pasartexto)
+print("Un elemento de A con un elemento de B", juntar1)
+
+	
+	
